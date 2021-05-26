@@ -81,3 +81,7 @@ C:\Datos\Saul\CursoMVC\CursoMVC\CursoMVC\obj\Debug\CursoMVC.csproj.CoreCompileIn
 C:\Datos\Saul\CursoMVC\CursoMVC\CursoMVC\obj\Debug\CursoMVC.csproj.CopyComplete
 C:\Datos\Saul\CursoMVC\CursoMVC\CursoMVC\obj\Debug\CursoMVC.dll
 C:\Datos\Saul\CursoMVC\CursoMVC\CursoMVC\obj\Debug\CursoMVC.pdb
+C:\Datos\Saul\CursoMVC\CursoMVC\CursoMVC\bin\EntityFramework.dll
+C:\Datos\Saul\CursoMVC\CursoMVC\CursoMVC\bin\EntityFramework.SqlServer.dll
+C:\Datos\Saul\CursoMVC\CursoMVC\CursoMVC\bin\EntityFramework.xml
+C:\Datos\Saul\CursoMVC\CursoMVC\CursoMVC\bin\EntityFramework.SqlServer.xml
