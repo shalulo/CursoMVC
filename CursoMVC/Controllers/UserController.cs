@@ -81,5 +81,44 @@ namespace CursoMVC.Controllers
               return View(User);
             }
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            var LoginUser = (from e in db.Users
+                             where model.Login == e.Cedula && model.Password == e.Password
+                             select e).ToList();
+
+            if (LoginUser.Count == 1)
+            {
+                Session.Timeout = 10;
+                Session["Login"] = LoginUser[0].Cedula;
+                Session["Nombre"] = LoginUser[0].Nombre;
+                Session["Correo"] = LoginUser[0].Email;
+                Session["Perfil"] = LoginUser[0].Perfil;
+                return RedirectToAction("ListUsers");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Usuaio o contraseña incorecta.");
+                return View(model);
+            }
+        }
+
+        public ActionResult LogOff()
+        {
+            Session["Login"] = string.Empty;
+            Session["Nombre"] = string.Empty;
+            Session["Correo"] = string.Empty;
+            Session["Perfil"] = string.Empty;
+
+            return RedirectToAction("Login");
+        }
+
     }
 }
