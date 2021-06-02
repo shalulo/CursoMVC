@@ -1,4 +1,5 @@
-﻿using CursoMVC.Models.User;
+﻿using CursoMVC.Infraestucture;
+using CursoMVC.Models.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace CursoMVC.Controllers
 {
+    
     public class UserController : Controller
     {
         private UserDBContext db = new UserDBContext();
@@ -33,6 +35,7 @@ namespace CursoMVC.Controllers
             }
         }
 
+        [CustomAuthenticationfilter]
         public ActionResult ListUsers()
         {
             var Users = from e in db.Users
@@ -82,12 +85,15 @@ namespace CursoMVC.Controllers
             }
         }
 
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
 
+        
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Login(LoginViewModel model)
         {
             var LoginUser = (from e in db.Users
